@@ -149,7 +149,8 @@ class LSegmentationModule(pl.LightningModule):
                 {"params": self.net.scale4_conv.parameters(), "lr": self.base_lr * 10}
             )
 
-        if self.other_kwargs["midasproto"]:
+        # if self.other_kwargs["midasproto"]:
+        if False: # martin: bypassing this b/c we initialize lseg w/o others_kwargs
             print("Using midas optimization protocol")
             
             opt = torch.optim.Adam(
